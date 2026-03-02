@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор космічної експедиції</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Симулятор космічної експедиції</h1>
+        <nav>
+            <ul id="main-nav">
+                <li><a href="#expeditions-section">Експедиції</a></li>
+                <li><a href="#registration-section">Реєстрація</a></li>
+                <li><a href="#log-section">Журнал</a></li>
+                <li><a href="#mission-section">Поточна місія</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="expeditions-section">
+            <h2>Доступні експедиції</h2>
+            <!-- динамічно генерується список експедицій -->
+            <div id="expeditions-container" class="grid-container"></div>
+        </section>
+
+        <section id="registration-section">
+            <h2>Реєстрація на експедицію</h2>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="commander-name">Ім'я командира:</label>
+                    <input type="text" id="commander-name" name="commanderName" placeholder="Введіть ваше ім'я">
+                </div>
+                <div class="form-group">
+                    <label for="commander-email">Електронна пошта:</label>
+                    <input type="email" id="commander-email" name="commanderEmail" placeholder="Введіть ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="expedition-select">Оберіть експедицію:</label>
+                    <select id="expedition-select" name="expeditionSelect">
+                        <option value="">-- Оберіть --</option>
+                        <!-- динамічно додаються опції -->
+                    </select>
+                </div>
+                <button type="submit" class="btn">Зареєструватись</button>
+            </form>
+            <div id="registration-message" class="hidden"></div>
+            <div id="registered-users">
+                <h3>Зареєстровані учасники:</h3>
+                <ul id="users-list"></ul>
+            </div>
+        </section>
+
+        <section id="mission-section" class="hidden-section">
+            <h2>Поточна місія: <span id="current-mission-name">Немає</span></h2>
+            <div class="mission-status-container">
+                <p>Статус: <span id="mission-status" class="status-badge standby">Очікування</span></p>
+                <p>Час у польоті: <span id="flight-timer">00:00:00</span></p>
+            </div>
+            <button id="toggle-mission-btn" class="btn primary-btn">Відкрити панель управління місією</button>
+            
+            <div id="mission-control-panel" class="hidden">
+                <p>Управління місією розблоковано. Готові до старту?</p>
+                <button id="start-mission-btn" class="btn start-btn" disabled>Почати місію</button>
+                <button id="end-mission-btn" class="btn end-btn hidden">Завершити місію</button>
+            </div>
+        </section>
+
+        <section id="log-section">
+            <h2>Журнал подорожей</h2>
+            <ul id="travel-log">
+                <!-- записи журналу додаватимуться тут -->
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Space Expedition Simulator. Всі права захищені.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
